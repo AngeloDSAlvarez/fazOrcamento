@@ -12,17 +12,20 @@ body {
     margin-left: 20px;
 }
 
-.tabela-processador, 
-.tabela-placa-mae,
-.tabela-componentes {
+.tabela-geral {
+
+    width: max-content;
     margin-top: 20px;
+
     
     background-color: rgb(152, 187, 252);
 }
 
-.tabela-processador, .tabela-processador th, td, 
-.tabela-placa-mae, .tabela-placa-mae th, td,
-.tabela-componentes, .tabela-componentes th, td {
+.tabela-geral tbody {
+    visibility: visible;
+}
+
+.tabela-geral, .tabela-geral th, td {
     padding: 4px;
     text-align: center;
 
@@ -39,4 +42,16 @@ body {
 
     background-color: rgb(61, 81, 117);
 
+}
+
+.tabela-geral thead {
+    cursor: pointer;
+
+    background-color: #000f80;
+}
+
+.tabela-geral thead:hover {
+    cursor: pointer;
+
+    background-color: #000853;
 }

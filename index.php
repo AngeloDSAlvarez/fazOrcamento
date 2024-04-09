@@ -66,21 +66,21 @@
     <h1>Orçamento!</h1>    
 
       
-        <table class="tabela-processador">
-            <thead>
-                <tr>
-                    <th>Nome</th>
+        <table class="tabela-processador tabela-geral">
+            <thead onclick="mostraTabela('processador')">
+                <tr >
+                    <th >Nome</th>
                     <th>Valor</th>
                 </tr>
             </thead>
 
-            <tbody class="processador" id="tabela-processador">
+            <tbody class="processador tabela-geral" id="tabela-processador">
                 <script>atualizaTabela("processador")</script>
             </tbody>
         </table>
         
-        <table class="tabela-placa-mae">
-            <thead>
+        <table class="tabela-placa-mae tabela-geral">
+            <thead onclick="mostraTabela('placa-mae')">
                 <th>Nome</th>
                 <th>ChipSet</th>
                 <th>Soquete</th>
@@ -94,7 +94,7 @@
 
 
 
-        <table class="tabela-componentes">
+        <table class="tabela-componentes tabela-geral">
             <thead>
                 <th>Componente</th>
                 <th>Nome</th>

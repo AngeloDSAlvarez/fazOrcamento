@@ -2,7 +2,7 @@ CREATE DATABASE fazorcamento;
 USE fazorcamento;
 
 CREATE TABLE processador(
-	id_processador INT AUTO_INCREMENT PRIMARY KEY,
+	id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(200),
     preco FLOAT
 );
@@ -16,11 +16,11 @@ insert into processador VALUES
 select * from processador;
 
 CREATE TABLE placa_mae(
-	id_placamae INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
     chipset VARCHAR(10),
     soquete VARCHAR(20),
-    valor FLOAT
+    preco FLOAT
 );
 
 INSERT INTO placa_mae VALUES
