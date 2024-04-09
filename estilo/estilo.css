@@ -1,0 +1,42 @@
+* {
+    font-family: Verdana, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    color: #fff;
+}
+
+body {
+    background-color: rgb(8, 8, 87);
+
+    margin-left: 20px;
+}
+
+.tabela-processador, 
+.tabela-placa-mae,
+.tabela-componentes {
+    margin-top: 20px;
+    
+    background-color: rgb(152, 187, 252);
+}
+
+.tabela-processador, .tabela-processador th, td, 
+.tabela-placa-mae, .tabela-placa-mae th, td,
+.tabela-componentes, .tabela-componentes th, td {
+    padding: 4px;
+    text-align: center;
+
+    border: 2px solid rgb(225, 0, 255);
+    border-collapse: collapse;
+
+
+    color: aliceblue;
+
+}
+
+.tabela-processador tbody tr:hover, .tabela-placa-mae tbody tr:hover {
+    cursor: pointer;
+
+    background-color: rgb(61, 81, 117);
+
+}

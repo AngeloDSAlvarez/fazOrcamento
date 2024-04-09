@@ -3,7 +3,7 @@
     //conexão com o BD
     $connection = mysqli_connect("localhost:3306", "root", "root", "fazorcamento") or die ("Error: " . mysqli_error($connection));
 
-    //query para pegar os alimentos do bd
+    //query para pegar os processadores do bd
     $queryProcessador = "  SELECT * FROM processador
                 ORDER BY nome; ";
 
@@ -15,19 +15,19 @@
     
     //passa o resultado para o array
     while($row = mysqli_fetch_assoc($resultado)){
-        $arrayAlimentos[] = $row;
+        $arrayProcessador[] = $row;
     }
 
     //caminho do JSON
-    $jsonAlimentos = fopen('./json/processadores.json', 'w');
+    $jsonProcessador = fopen('./json/processador.json', 'w');
 
     //escreve no JSON e utiliza a função JSON_encode
-    fwrite($jsonAlimentos, json_encode($arrayAlimentos));
-    fclose($jsonAlimentos);
+    fwrite($jsonProcessador, json_encode($arrayProcessador));
+    fclose($jsonProcessador);
 
 
 
-    //query para pegar os alimentos do bd
+    //query para pegar a placa mãe do bd
     $queryPlacaMae = "  SELECT * FROM placa_mae
                 ORDER BY nome; ";
 
@@ -35,19 +35,19 @@
     $resultado = mysqli_query($connection, $queryPlacaMae) or die ("Erro ao selecionar " . mysqli_error($connection));
 
     //array para armazenar o resultado
-    $arrayProcessador = array();
+    $arrayPlacaMae = array();
     
     //passa o resultado para o array
     while($row = mysqli_fetch_assoc($resultado)){
-        $arrayAlimentos[] = $row;
+        $arrayPlacaMae[] = $row;
     }
 
     //caminho do JSON
-    $jsonAlimentos = fopen('./json/placa-mae.json', 'w');
+    $jsonPlacaMae = fopen('./json/placa-mae.json', 'w');
 
     //escreve no JSON e utiliza a função JSON_encode
-    fwrite($jsonAlimentos, json_encode($arrayAlimentos));
-    fclose($jsonAlimentos);
+    fwrite($jsonPlacaMae, json_encode($arrayPlacaMae));
+    fclose($jsonPlacaMae);
 
 ?>
 
@@ -60,31 +60,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste</title>
     <script type="text/javascript" src="./script.js"></script>
+    <link rel="stylesheet" href="./estilo/estilo.css">
 </head>
 <body>
     <h1>Orçamento!</h1>    
 
-    <form>
-        <select id="select-processadores" name="processador" onchange="javascript:alteraInput()">
-            <script>atualizaSelect()</script>
-        </select>
-
-        
-
-        <input id="valor-processador"  disabled>
-        
-        <table>
+      
+        <table class="tabela-processador">
             <thead>
-                <th>Nome</th>
-                <th>Valor</th>
+                <tr>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                </tr>
             </thead>
 
-            <tbody class="Processador" id="tabela-processadores">
-                <script>atualizaTabela()</script>
+            <tbody class="processador" id="tabela-processador">
+                <script>atualizaTabela("processador")</script>
             </tbody>
         </table>
         
-        <table>
+        <table class="tabela-placa-mae">
             <thead>
                 <th>Nome</th>
                 <th>ChipSet</th>
@@ -92,14 +87,14 @@
                 <th>Valor</th>
             </thead>
 
-            <tbody class="Placa-mae" id="tabela-processadores">
-                <script>atualizaTabela()</script>
+            <tbody class="placa-mae" id="tabela-placa-mae">
+                <script>atualizaTabela("placa-mae")</script>
             </tbody>
         </table>
 
 
 
-        <table >
+        <table class="tabela-componentes">
             <thead>
                 <th>Componente</th>
                 <th>Nome</th>
@@ -111,10 +106,6 @@
             </tbody>
         </table>
 
-
-
-        <input type="submit">
-    </form>
 
 </body>
 </html>

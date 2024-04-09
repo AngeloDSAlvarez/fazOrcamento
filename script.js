@@ -1,90 +1,67 @@
-//adicionar os alimentos do JSON dentro das options
-function atualizaSelect(){
-    //usa o querySelector para pegar o select dos alimentos
-    let selectProcessadores = document.querySelector("#select-processadores");
 
-    //pega o JSON de alimentos e transforma a resposta em "response"
-    fetch("./json/processadores.json").then((response) => {
-        //converte a resposta em JSON e após for convertido (.then) possuo os "alimentos"
-        response.json().then((processadores) =>{
-            //map pelo JSON de alimentos para percorrer por todos
-            selectProcessadores.innerHTML = ``;
-            processadores.map((processador) => {
-                //innerHTML no "selectAlimentos" para inserir os alimentos no select
-                selectProcessadores.innerHTML += `<option value="${processador.id_processador}"> ${processador.nome}  </option>`;
 
-            })
-        })
-    })
-}
-
-function atualizaTabela() {
+function atualizaTabela(componente) {
+    //usa o querySelector para pegar a tabela do componente recebido no parametro
+    var tabela = document.querySelector("#tabela-"+componente);
     
-    //usa o querySelector para pegar o select dos alimentos
-    var tabelaProcessadores = document.querySelector("#tabela-processadores");
-    
-    //pega o JSON de alimentos e transforma a resposta em "response"
-    fetch("./json/processadores.json").then((response) => {
-        //converte a resposta em JSON e após for convertido (.then) possuo os "alimentos"
-        response.json().then((processadores) =>{
+    //'pega' o json do componente, recebido atravez do parametro
+    fetch("./json/"+componente+".json").then((resposta) => {
+        //converte a resposta em JSON e após for convertido (.then) possuo os componentes, que fica em items
+        resposta.json().then((items) =>{
             
-            //map pelo JSON de alimentos para percorrer por todos
-            tabelaProcessadores.innerHTML = ``;
-            processadores.map((processador) => {
-                //innerHTML na tabelaProcessadores, para inserir o processador na tabela
-                //onclick passando o id do processador e o nome do componente para colocar na tabela final dos componentes 
-                tabelaProcessadores.innerHTML +=    `
-                <tr onclick="alteraProcessador(${processador.id_processador},'${tabelaProcessadores.className}')">
-                    <td > ${processador.nome} </td>
-                    <td > ${processador.preco} </td>
-                </tr>
-                `;
+            //zera o innerHTML da tabela do componente
+            tabela.innerHTML = ``;
+
+            //map pelo JSON dos componentes para percorrer por todos
+            items.map((item) => {
+                //passa os objetos para um array
+                const array = Object.keys(item).map(chave => item[chave]);
+                
+                //cria a string para inserir os itens na tabela do componente
+                //onclick na <tr> chama função alteraComponente, enviando o id do item e o nome do componente, ataves da tabela.className
+                var texto  = `<tr onclick="alteraComponente(` + item.id + `,'` + tabela.className + `')"> `;
+                //for pelo array, para inserir na string
+                for(let i = 1; i < array.length; i++) { 
+                    texto +=` <td> `;
+                    texto += array[i];
+                    texto += ` </td> `;
+                }
+                texto += ` </tr> `;
+                //innerHTML na tabelaProcessadores, para inserir o componente na tabela
+                tabela.innerHTML += `${texto}`;
             })
         })
     })
 }
 
-function alteraInput() {
-    let valorProcessador = document.querySelector("#valor-processador");
-
-    let selectProcessadores = document.querySelector("#select-processadores");
-
-    //pega o JSON de alimentos e transforma a resposta em "response"
-    fetch("./json/processadores.json").then((response) => {
-        //converte a resposta em JSON e após for convertido (.then) possuo os "alimentos"
-        response.json().then((processadores) =>{
-            //map pelo JSON de alimentos para percorrer por todos
-            valorProcessador.innerHTML = ``;
-            processadores.map((processador) => {
-                processador.id_processador == selectProcessadores.value ? valorProcessador.value = `${processador.valor}` : null;
-            })
-        })
-    })
-
-}
 
 
-function alteraProcessador(id_processador, componente) {
+function alteraComponente(id_item, componente) {
+    //usa o querySelector parra pegar a tabela-componentes
     let tabelaComponentes = document.querySelector("#tabela-componentes");
-
-    //pega o JSON de alimentos e transforma a resposta em "response"
-    fetch("./json/processadores.json").then((response) => {
-        //converte a resposta em JSON e após for convertido (.then) possuo os "alimentos"
-        response.json().then((processadores) =>{
+   
+    //'pega' o json do componente, recebido atravez do parametro
+    fetch("./json/"+ componente + ".json").then((response) => {
+        //converte a resposta em JSON e após for convertido (.then) possuo os componentes, que fica em items
+        response.json().then((itens) =>{
             
-            //map pelo JSON de alimentos para percorrer por todos
-            processadores.map((processador) => {
-                if (id_processador == processador.id_processador){
+            //map pelo JSON dos componentes para percorrer por todos
+            itens.map((item) => {
+                //verifica se o id_item recebido como parametro é igual ao item.id, do JSON
+                if (id_item == item.id){
+                    //pega o elemento <tr> pelo id, id que é o nome do componente, ex: processador, placa-mae
                     let trComponente = document.getElementById(componente);
+                    //verifica se o <tr> do componente está nulo, para apagar o elemento e não ficar duplicado
                     if(trComponente != null) {
+                        //remove o <tr> caso não esteja nula
                         trComponente.remove();
                     }
-                    //innerHTML no "selectAlimentos" para inserir os alimentos no select
-                    tabelaComponentes.innerHTML +=    `
+                    //innerHTML na "tabelaComponentes" colocando id o nome do componente e outros dados.
+                    tabelaComponentes.innerHTML +=   `
                     <tr id="${componente}">
                         <td > ${componente} </td>
-                        <td > ${processador.nome} </td>
-                        <td > R$ ${processador.preco} </td>
+                        <td > ${item.nome} </td>
+                        <td > R$ ${item.preco} </td>
                     </tr>
                     `;
                 } 
