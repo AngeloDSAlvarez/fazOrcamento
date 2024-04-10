@@ -2,13 +2,13 @@
 
 function atualizaTabela(componente) {
     //usa o querySelector para pegar a tabela do componente recebido no parametro
-    var tabela = document.querySelector("#tabela-"+componente);
-    
+    var tabela = document.querySelector("#tabela-" + componente);
+
     //'pega' o json do componente, recebido atravez do parametro
-    fetch("./json/"+componente+".json").then((resposta) => {
+    fetch("./json/" + componente + ".json").then((resposta) => {
         //converte a resposta em JSON e após for convertido (.then) possuo os componentes, que fica em items
-        resposta.json().then((items) =>{
-            
+        resposta.json().then((items) => {
+
             //zera o innerHTML da tabela do componente
             tabela.innerHTML = ``;
 
@@ -16,13 +16,13 @@ function atualizaTabela(componente) {
             items.map((item) => {
                 //passa os objetos para um array
                 const array = Object.keys(item).map(chave => item[chave]);
-                
+
                 //cria a string para inserir os itens na tabela do componente
                 //onclick na <tr> chama função alteraComponente, enviando o id do item e o nome do componente
-                var texto  = `<tr onclick="alteraComponente(` + array[0] + `,'` + componente+ `')"> `;
+                var texto = `<tr id="${componente + array[0]}" onclick="alteraComponente(` + array[0] + `,'` + componente + `')"> `;
                 //for pelo array, para inserir na string
-                for(let i = 1; i < array.length; i++) { 
-                    texto +=` <td> `;
+                for (let i = 1; i < array.length; i++) {
+                    texto += ` <td> `;
                     texto += array[i];
                     texto += ` </td> `;
                 }
@@ -40,39 +40,60 @@ function alteraComponente(id_item, componente) {
     //usa o querySelector parra pegar a tabela-componentes
     let tabelaComponentes = document.querySelector("#tabela-componentes");
     //'pega' o json do componente, recebido atravez do parametro
-    fetch("./json/"+ componente + ".json").then((response) => {
+    fetch("./json/" + componente + ".json").then((response) => {
         //converte a resposta em JSON e após for convertido (.then) possuo os componentes, que fica em items
-        response.json().then((itens) =>{
-            
+        response.json().then((itens) => {
+
             //map pelo JSON dos componentes para percorrer por todos
             itens.map((item) => {
                 //verifica se o id_item recebido como parametro é igual ao item.id, do JSON
-                if (id_item == item.id){
+                if (id_item == item.id) {
                     //pega o elemento <tr> pelo id, id que é o nome do componente, ex: processador, placa-mae
                     let trComponente = document.getElementById(componente);
                     //verifica se o <tr> do componente está nulo, para apagar o elemento e não ficar duplicado
-                    if(trComponente != null) {
+                    if (trComponente != null) {
                         //remove o <tr> caso não esteja nula
                         trComponente.remove();
-                        }
+                    }
                     //innerHTML na "tabelaComponentes" colocando id o nome do componente e outros dados.
-                    tabelaComponentes.innerHTML +=   `
+                    tabelaComponentes.innerHTML += `
                     <tr id="${componente}">
                         <td > ${componente} </td>
                         <td > ${item.nome} </td>
                         <td > R$ ${item.preco} </td>
                     </tr>
                     `;
-                } 
+                    componenteAtivo(id_item, componente);
+                }
             })
         })
     })
 }
+var componentesAtivos = [0];
+function componenteAtivo(id, componente) {
+    let trComponenteAtivo = document.querySelector("#" + componente + id );
+    for (let i = 0; i < componentesAtivos.length; i++) {
+        if (componentesAtivos[i][0] == componente && componentesAtivos[i][1] != id) {
+
+            trComponenteAtivo.classList.add('item-ativo');
+            let idItemAntigo = componentesAtivos[i][0] + componentesAtivos[i][1];
+            let itemAntigo = document.querySelector("#" + idItemAntigo );
+            itemAntigo.classList.remove('item-ativo');
+
+            componentesAtivos[i][1] = id;
+            break;
+        } else if (i == componentesAtivos.length - 1){
+            trComponenteAtivo.classList.add('item-ativo');
+            i++;
+            
+            componentesAtivos[i] = [componente, id];
+        }
+    }
+
+}
 
 function mostraTabela(componente) {
-    let tabela = document.querySelector("#tabela-"+componente);
-
-    console.log(tabela.style.visibility);
+    let tabela = document.querySelector("#tabela-" + componente);
 
     if (tabela.style.visibility == "collapse") {
         tabela.style.visibility = "visible";

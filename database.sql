@@ -21,7 +21,9 @@ CREATE TABLE placa_mae(
     chipset VARCHAR(10),
     soquete VARCHAR(20),
     preco FLOAT
+
 );
+
 
 INSERT INTO placa_mae VALUES
 (null, "Duex", "h61", "lga1155", 120),
