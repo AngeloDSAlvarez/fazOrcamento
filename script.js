@@ -12,16 +12,19 @@ function atualizaTabela(componente) {
     fetch("./json/" + componente + ".json").then((resposta) => {
         //converte a resposta em JSON e após for convertido (.then) possuo os componentes, que fica em items
         resposta.json().then((items) => {
+            //cria vetor com o nomes para serem inseridos no cabeçalho, através das keys do objeto recebido do json
             let vetorCabecalho = Object.keys(items[0]);
-            
+            //inicializa a linha do th
             var textoTHead = `<tr id=""> `;
-            //for pelo array, para inserir na string
+            //for pelo vetor para inserir os th na tabela, começando do 1 para ignorar o id
             for (let i = 1; i < vetorCabecalho.length; i++) {
                 textoTHead += ` <th> `;
-                textoTHead += vetorCabecalho[i];
+                //utiliza função para deixar primeira letra do cabeçalho maiuscula
+                textoTHead += deixaPrimeiraMaiuscula(vetorCabecalho[i]);
                 textoTHead += ` </th> `;
             }
             textoTHead += `</tr>`;
+            //insere os <th> no thead da tabela
             theadTabela.innerHTML += textoTHead;
             
 
