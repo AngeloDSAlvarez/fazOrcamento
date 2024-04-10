@@ -67,27 +67,23 @@
 
       
         <table class="tabela-processador tabela-geral">
-            <thead onclick="mostraTabela('processador')">
+            <thead id="thead-processador" onclick="mostraTabela('processador')">
                 <tr >
                     <th >Nome</th>
                     <th>Valor</th>
                 </tr>
             </thead>
 
-            <tbody class="processador tabela-geral" id="tabela-processador">
+            <tbody class="processador" id="tbody-processador">
                 <script>atualizaTabela("processador")</script>
             </tbody>
         </table>
         
         <table class="tabela-placa-mae tabela-geral">
-            <thead onclick="mostraTabela('placa-mae')">
-                <th>Nome</th>
-                <th>ChipSet</th>
-                <th>Soquete</th>
-                <th>Valor</th>
+            <thead id="thead-placa-mae" onclick="mostraTabela('placa-mae')">
             </thead>
 
-            <tbody class="placa-mae" id="tabela-placa-mae">
+            <tbody class="placa-mae" id="tbody-placa-mae">
                 <script>atualizaTabela("placa-mae")</script>
             </tbody>
         </table>
@@ -101,7 +97,7 @@
                 <th>Valor</th>
             </thead>
 
-            <tbody id="tabela-componentes">
+            <tbody id="tbody-componentes">
                 
             </tbody>
         </table>
