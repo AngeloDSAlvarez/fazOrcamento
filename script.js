@@ -69,24 +69,31 @@ function alteraComponente(id_item, componente) {
         })
     })
 }
+//array dos componentes ativos nas tabelas
 var componentesAtivos = [0];
+
+//função para deixar o componente da tabela ativo quando seleciona
+//componente ativo = cor de fundo destacada
+//recebe o id do componente e o nome dele. ex: 1, 'processador'
 function componenteAtivo(id, componente) {
+    //seleciona o <tr> do componente que deseja ativar
     let trComponenteAtivo = document.querySelector("#" + componente + id );
+    //for para percorrer array dos componentes ja ativos
     for (let i = 0; i < componentesAtivos.length; i++) {
+        //verifica se o componente e o id recebido nos parametros já está no array dos componentes ativos
         if (componentesAtivos[i][0] == componente && componentesAtivos[i][1] != id) {
-
+            //caso esteja adicionar a class 'item-ativo' para o <tr>
             trComponenteAtivo.classList.add('item-ativo');
-            let idItemAntigo = componentesAtivos[i][0] + componentesAtivos[i][1];
-            let itemAntigo = document.querySelector("#" + idItemAntigo );
-            itemAntigo.classList.remove('item-ativo');
+            let idItemAntigo = componentesAtivos[i][0] + componentesAtivos[i][1]; //cria variavel para colocar o componente e seu id do componente antigo
+            let itemAntigo = document.querySelector("#" + idItemAntigo ); //seleciona o <tr> do item antigo do componente para retirar a classe
+            itemAntigo.classList.remove('item-ativo'); //retira a classe 'item-ativo' do <tr> antigo 
 
-            componentesAtivos[i][1] = id;
-            break;
-        } else if (i == componentesAtivos.length - 1){
-            trComponenteAtivo.classList.add('item-ativo');
-            i++;
-            
-            componentesAtivos[i] = [componente, id];
+            componentesAtivos[i][1] = id; //altera o id do componente para o id atual
+            break; //break para o array não quebrar e adicionar infinitamente no final
+        } else if (i == componentesAtivos.length - 1){ //verifica se é o ultimo item do array, para não adicionar toda vez que cair no else
+            trComponenteAtivo.classList.add('item-ativo'); // adiciona a classe 'item-ativo' para o <tr>
+            i++; //adiciona 1 ao i
+            componentesAtivos[i] = [componente, id]; //adiciona o componente e o seu id ao array
         }
     }
 

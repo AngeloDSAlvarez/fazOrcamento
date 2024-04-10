@@ -94,8 +94,8 @@
 
 
 
-        <table class="tabela-componentes tabela-geral">
-            <thead>
+        <table class="tabela-componentes tabela-geral" >
+            <thead onclick="mostraTabela('componentes')">
                 <th>Componente</th>
                 <th>Nome</th>
                 <th>Valor</th>
