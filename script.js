@@ -99,13 +99,13 @@ function componenteAtivo(id, componente) {
 
 }
 
+//função para mostrar/sumir o tbody das tabelas
 function mostraTabela(componente) {
-    let tabela = document.querySelector("#tabela-" + componente);
+    let tbody = document.querySelector("#tabela-" + componente); //recebe o tbody atraves do componente
 
-    if (tabela.style.visibility == "collapse") {
-        tabela.style.visibility = "visible";
+    if (tbody.style.visibility == "collapse") { //verifica se o tbody já está collapsado
+        tbody.style.visibility = "visible"; //deixa visivel
     } else {
-        tabela.style.visibility = "collapse";
+        tbody.style.visibility = "collapse"; //deixa collapsado
     }
-
 }
