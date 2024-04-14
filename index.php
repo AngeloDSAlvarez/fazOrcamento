@@ -29,7 +29,7 @@
 
     //query para pegar a placa mãe do bd
     $queryPlacaMae = "  SELECT * FROM placa_mae
-                ORDER BY nome; ";
+                ORDER BY chipset; ";
 
     //executa a query
     $resultado = mysqli_query($connection, $queryPlacaMae) or die ("Erro ao selecionar " . mysqli_error($connection));
@@ -55,6 +55,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,35 +63,43 @@
     <script type="text/javascript" src="./script.js"></script>
     <link rel="stylesheet" href="./estilo/estilo.css">
 </head>
+
 <body>
-    <h1>Orçamento!</h1>    
+    <div class="container-pagina">
+        <h1>Orçamento!</h1>
 
-      
-        <table class="tabela-processador tabela-geral">
-            <thead id="thead-processador" onclick="mostraTabela('processador')">
-                <tr >
-                    <th >Nome</th>
-                    <th>Valor</th>
-                </tr>
-            </thead>
+        <div class="tabelas-componentes">
+            <span>
+                <h3>Processador</h3>
+                <table class="tabela-processador tabela-geral">
+                    
+                    <thead id="thead-processador" onclick="mostraTabela('processador')">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
 
-            <tbody class="processador" id="tbody-processador">
-                <script>atualizaTabela("processador")</script>
-            </tbody>
-        </table>
-        
-        <table class="tabela-placa-mae tabela-geral">
-            <thead id="thead-placa-mae" onclick="mostraTabela('placa-mae')">
-            </thead>
+                    <tbody class="processador" id="tbody-processador">
+                        <script>atualizaTabela("processador")</script>
+                    </tbody>
+                </table>
+            </span>
+            <span>
+                <h3>Placa mãe</h3>  
+                <table class="tabela-placa-mae tabela-geral">
+                    <thead id="thead-placa-mae" onclick="mostraTabela('placa-mae')">
+                    </thead>
 
-            <tbody class="placa-mae" id="tbody-placa-mae">
-                <script>atualizaTabela("placa-mae")</script>
-            </tbody>
-        </table>
+                    <tbody class="placa-mae" id="tbody-placa-mae">
+                        <script>atualizaTabela("placa-mae")</script>
+                    </tbody>
+                </table>
+            </span>
 
+        </div>
 
-
-        <table class="tabela-componentes tabela-geral" >
+        <table class="tabela-componentes tabela-geral">
             <thead onclick="mostraTabela('componentes')">
                 <th>Componente</th>
                 <th>Nome</th>
@@ -98,10 +107,12 @@
             </thead>
 
             <tbody id="tbody-componentes">
-                
+
             </tbody>
         </table>
 
 
+    </div>
 </body>
+
 </html>

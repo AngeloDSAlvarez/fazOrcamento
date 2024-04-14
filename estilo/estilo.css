@@ -7,16 +7,27 @@
 }
 
 body {
-    background-color: rgb(8, 8, 87);
+    background-color: rgb(146, 146, 146);
 
     margin-left: 20px;
 }
+
+.container-pagina {
+
+
+}
+
+.tabelas-componentes {
+    display: flex;
+}
+
+
 
 .tabela-geral {
 
     width: max-content;
     margin-top: 20px;
-
+    margin-right: 15px;
     
     background-color: rgb(152, 187, 252);
 }
