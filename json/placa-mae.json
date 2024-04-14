@@ -1,1 +1,1 @@
-[{"id":"2","marca":"Blucase","chipset":"h110","soquete":"lga1151","preco":"220","info_adicional":"Com m.2, 2 slot ram, 2 usb 3.0"},{"id":"1","marca":"Duex","chipset":"h61","soquete":"lga1155","preco":"120","info_adicional":"Com m.2, 2 slot ram, 2 usb 3.0"}]
+[{"id":"2","nome":"Bluecase h110","soquete":"lga1151","preco":"220","info_adicional":"Com m.2, 2 slot ram, 2 usb 3.0"},{"id":"1","nome":"Duex h61","soquete":"lga1155","preco":"120","info_adicional":"Com m.2, 2 slot ram, 2 usb 3.0"}]

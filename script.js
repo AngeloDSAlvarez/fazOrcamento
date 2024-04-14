@@ -52,7 +52,9 @@ function atualizaTabela(componente) {
 }
 
 
-
+function teste(){
+    console.log("ok")
+}
 function alteraComponente(id_item, componente) {
     //usa o querySelector parra pegar a tabela-componentes
     let tabelaComponentes = document.querySelector("#tbody-componentes");
@@ -63,6 +65,9 @@ function alteraComponente(id_item, componente) {
 
             //map pelo JSON dos componentes para percorrer por todos
             itens.map((item) => {
+                //passa os objetos para um array
+                const arrayComponente = Object.keys(item).map(chave => item[chave]);
+            
                 //verifica se o id_item recebido como parametro é igual ao item.id, do JSON
                 if (id_item == item.id) {
                     //pega o elemento <tr> pelo id, id que é o nome do componente, ex: processador, placa-mae
@@ -72,6 +77,7 @@ function alteraComponente(id_item, componente) {
                         //remove o <tr> caso não esteja nula
                         trComponente.remove();
                     }
+
                     //innerHTML na "tabelaComponentes" colocando id o nome do componente e outros dados.
                     tabelaComponentes.innerHTML += `
                     <tr id="${componente}">
@@ -86,6 +92,7 @@ function alteraComponente(id_item, componente) {
         })
     })
 }
+
 //array dos componentes ativos nas tabelas
 var componentesAtivos = [0];
 
