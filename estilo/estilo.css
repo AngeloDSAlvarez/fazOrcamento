@@ -23,11 +23,9 @@ body {
     margin-left: 20px;
 }
 
-.container-pagina {
-
-
+.modal-content {
+    background-color: #0d2a4a;
 }
-
 hr {
     border-color: #a4bad2;
 }
@@ -37,10 +35,10 @@ hr {
 }
 h3 {
     display: flex;
-    padding: 0;
+    float: left;
 }
 svg {
-    padding-left: 4px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
