@@ -105,14 +105,78 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
-                                    ...
+                                <form id="form-processador" action="./add-proce-db.php" method="post" class="form-geral">
+                                    <label for="nome">Nome
+                                        <input type="text" name="nome" >
+                                    </label>
+
+                                    <label class="label-numero" for="precoProcessador">Preço
+                                        <input type="number" name="preco" id="precoProcessador" placeholder="2000.00">
+                                    </label>
+                                    
+                                    
+                                    <label class="label-numero">Nucleos
+                                        <input type="number" name="nucleos" >
+                                    </label>
+                                    
+                                    <label class="label-numero">Threads
+                                        <input type="number" name="threads" >
+                                    </label>
+                                    
+                                    <label class="label-numero">Clock Máximo
+                                        <input step="0.010" type="number" name="clockMax" >
+                                    </label>
+                                    
+                                    <label class="label-numero">Clock Mínimo
+                                        <input type="number" name="clockMin" >
+                                    </label>
+                                    
+                                    <label class="label-numero">Memória Cache
+                                        <input type="number" name="memCache" >
+                                    </label>
+                                    
+                                    <label class="label-numero">Benchmark
+                                        <input type="number" name="benchmark" >
+                                    </label>
+                                    
+                                    <label>Soquete
+                                        <input type="text" name="soquete" >
+                                    </label>
+                                    
+                                    <label>Memória Ram
+                                        <input type="text" name="memRam" >
+                                    </label>
+                                    
+                                    <label class="label-numero">Velocidade Ram
+                                        <input type="number" name="velocRam" >
+                                    </label>
+                                    
+                                    <label class="label-numero">TDP
+                                        <input type="number" name="tdp" >
+                                    </label>
+
+                                    <label >Data Lançamento
+                                        <input type="date" name="dataLanc"  >
+                                    </label>
+
+                                    <label>Possui video integrado</label>
+                                    
+                                    <label for="possuiVideo">Sim
+                                        <input type="radio" id="possuiVideo" name="video" value="1">
+                                    </label>
+                                    
+                                    <label for="naoPossuiVideo">Não
+                                        <input type="radio" id="naoPossuiVideo" name="video" value="0">
+                                    </label>
+
+                                    <input type="submit" class="btn btn-primary" value="Adicionar Processador" >
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

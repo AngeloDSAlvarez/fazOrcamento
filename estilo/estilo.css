@@ -23,9 +23,7 @@ body {
     margin-left: 20px;
 }
 
-.modal-content {
-    background-color: #0d2a4a;
-}
+
 hr {
     border-color: #a4bad2;
 }
@@ -95,4 +93,42 @@ svg {
 
 .item-ativo {
     background-color: rgb(61, 81, 117);
+}
+
+.modal-content {
+    background-color: #0d2a4a;
+    width: 100%;
+}
+.form-geral {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-geral label {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 48%;
+}
+
+.form-geral input{
+    background-color: #43627f;
+    width: 100%;
+    padding: 2px 4px;
+
+    border-radius: 6px;
+    outline: none;
+}
+
+.form-geral input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+
+.label-numero {
+    width: min-content;
+    min-width: 80px;
+    
 }

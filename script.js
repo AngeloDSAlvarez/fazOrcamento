@@ -53,7 +53,7 @@ function atualizaTabela(componente) {
 
 
 function teste(){
-    console.log("ok")
+    
 }
 function alteraComponente(id_item, componente) {
     //usa o querySelector parra pegar a tabela-componentes
