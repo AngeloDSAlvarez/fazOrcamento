@@ -112,11 +112,12 @@ svg {
     justify-content: end;
     width: 48%;
 }
+
 .label-text {
     width: 100%;
 }
 
-.form-geral input{
+.form-geral input, .form-geral select{
     background-color: #43627f;
     width: 100%;
     padding: 2px 4px;
@@ -127,7 +128,6 @@ svg {
 
 .form-geral input[type=number]::-webkit-inner-spin-button { 
     -webkit-appearance: none;
-    
 }
 
 
@@ -140,8 +140,14 @@ svg {
     padding: 0 5px;
 }
 
-.infoAdicional:focus, .form-geral input:focus {
-    border: 1px solid #0d2a4a;
+.infoAdicional:focus, .form-geral input:focus, .form-geral select:focus {
+    background-color: #43627f;
+    width: 100%;
+    padding: 2px 4px;
+
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid rgb(106, 138, 255);
 }
 
 .container-radio-video {

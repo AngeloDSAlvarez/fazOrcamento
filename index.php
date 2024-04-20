@@ -206,11 +206,24 @@
                                 </label>
 
                                 <label>Soquete
-                                    <input type="text" name="soquete">
+                                    <select name="soquete">
+                                        <option value="AM3">AM3</option>
+                                        <option value="AM4">AM4</option>
+                                        <option value="LGA1155">LGA1155</option>
+                                        <option value="LGA1151">LGA1151</option>
+                                        <option value="LGA1150">LGA1150</option>
+                                        <option value="LGA1200">LGA1200</option>
+                                        <option value="LGA1700">LGA1700</option>
+                                    </select>
                                 </label>
 
                                 <label>Memória Ram
-                                    <input type="text" name="memRam">
+                                    <select name="memRam">
+                                        <option value="ddr2">DDR2</option>
+                                        <option value="ddr3">DDR3</option>
+                                        <option value="ddr4">DDR4</option>
+                                        <option value="ddr5">DDR5</option>
+                                    </select>
                                 </label>
 
                                 <label>Velocidade Ram
@@ -237,7 +250,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer" style="margin-top: 15px;">
                                 <input type="submit" class="btn btn-primary" value="Adicionar Processador">
                             </div>
                             
@@ -255,10 +268,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="tituloModalProcessador">Adicionar Processador</h1>
+                        <h1 class="modal-title fs-5" id="tituloModalProcessador">Adicionar Placa Mãe</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body"><!-- corpo e fomulário -->
                         <form id="form-processador" action="./add-placa-mae-db.php" method="post">
                             <div class="form-geral">
                                 <label>Nome
@@ -271,7 +284,15 @@
 
 
                                 <label>Soquete
-                                    <input type="text" name="soquete">
+                                    <select name="soquete">
+                                        <option value="AM3">AM3</option>
+                                        <option value="AM4">AM4</option>
+                                        <option value="LGA1155">LGA1155</option>
+                                        <option value="LGA1151">LGA1151</option>
+                                        <option value="LGA1150">LGA1150</option>
+                                        <option value="LGA1200">LGA1200</option>
+                                        <option value="LGA1700">LGA1700</option>
+                                    </select>
                                 </label>
                             </div>
 

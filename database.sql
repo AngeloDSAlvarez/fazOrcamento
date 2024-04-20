@@ -12,7 +12,7 @@ CREATE TABLE processador(
     clock_min FLOAT,
     mem_cache INT,
     lancamento DATE,
-	benchmark FLOAT,
+	benchmark FLOAT,	
     soquete VARCHAR(30),
     memoria_ram ENUM("ddr2", "ddr3", "ddr4", "ddr5"),
     veloc_ram INT,
@@ -20,6 +20,7 @@ CREATE TABLE processador(
 	grafico BOOLEAN
 );
 
+INSERT INTO processador VALUES (NULL,'a', 0, 0, 0, 0, 0, 00, '2000-01-01', 0, '00', 'ddr3', 0, 0, 0);
 
 insert into processador VALUES
 (null, "i5 6400", 180, 4, 4, 3.4, 3.1, 6, "2011-01-01", 3869, "1155", "ddr3", "1333", 95, TRUE);
@@ -32,10 +33,14 @@ select * from processador;
 CREATE TABLE placa_mae(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
-    soquete VARCHAR(20),
+    soquete ENUM('AM3', 'AM4', 'AM5', 'LGA1155', 'LGA1551', 'LGA1150', 'LGA1200', 'LGA1700'),
     preco FLOAT,
     info_adicional VARCHAR(255)
 );
+#DROP TABLE placa_mae;
+#ALTER TABLE placa_mae
+#MODIFY COLUMN soquete ENUM('AM3', 'AM4', 'AM5', 'LGA1155', 'LGA1551', 'LGA1150', 'LGA1200', 'LGA1700');
+
 
 
 INSERT INTO placa_mae VALUES
@@ -44,5 +49,6 @@ INSERT INTO placa_mae VALUES
 
 
 select * from placa_mae;
+
 
 INSERT INTO processador VALUES (NULL,'i7 2600', 1900, 4, 4, 4, 2, 6, 5033, 'lga1155', 'ddr3', 2133, 95, '2011-01-01', 1);
