@@ -79,7 +79,7 @@
                 </h3>
                 <!-- Button trigger modal  pelo data-bs-toggle e data-bs-target-->
                 <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarProcessador" onclick="teste()"
-                xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256">
+                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256">
                     <g fill="#dce3ed" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                         stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
                         font-family="none" font-weight="none" font-size="none" text-anchor="none"
@@ -92,95 +92,10 @@
                     </g>
                 </svg>
 
-               
 
-                <!-- Modal -->
-                <div class="modal fade" id="modalAdicionarProcessador" tabindex="-1" aria-labelledby="tituloModalProcessador"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="tituloModalProcessador">Adicionar Processador</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="form-processador" action="./add-proce-db.php" method="post" class="form-geral">
-                                    <label for="nome">Nome
-                                        <input type="text" name="nome" >
-                                    </label>
 
-                                    <label class="label-numero" for="precoProcessador">Preço
-                                        <input type="number" name="preco" id="precoProcessador" placeholder="2000.00">
-                                    </label>
-                                    
-                                    
-                                    <label class="label-numero">Nucleos
-                                        <input type="number" name="nucleos" >
-                                    </label>
-                                    
-                                    <label class="label-numero">Threads
-                                        <input type="number" name="threads" >
-                                    </label>
-                                    
-                                    <label class="label-numero">Clock Máximo
-                                        <input step="0.010" type="number" name="clockMax" >
-                                    </label>
-                                    
-                                    <label class="label-numero">Clock Mínimo
-                                        <input type="number" name="clockMin" >
-                                    </label>
-                                    
-                                    <label class="label-numero">Memória Cache
-                                        <input type="number" name="memCache" >
-                                    </label>
-                                    
-                                    <label class="label-numero">Benchmark
-                                        <input type="number" name="benchmark" >
-                                    </label>
-                                    
-                                    <label>Soquete
-                                        <input type="text" name="soquete" >
-                                    </label>
-                                    
-                                    <label>Memória Ram
-                                        <input type="text" name="memRam" >
-                                    </label>
-                                    
-                                    <label class="label-numero">Velocidade Ram
-                                        <input type="number" name="velocRam" >
-                                    </label>
-                                    
-                                    <label class="label-numero">TDP
-                                        <input type="number" name="tdp" >
-                                    </label>
 
-                                    <label >Data Lançamento
-                                        <input type="date" name="dataLanc"  >
-                                    </label>
 
-                                    <label>Possui video integrado</label>
-                                    
-                                    <label for="possuiVideo">Sim
-                                        <input type="radio" id="possuiVideo" name="video" value="1">
-                                    </label>
-                                    
-                                    <label for="naoPossuiVideo">Não
-                                        <input type="radio" id="naoPossuiVideo" name="video" value="0">
-                                    </label>
-
-                                    <input type="submit" class="btn btn-primary" value="Adicionar Processador" >
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </form>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <!-- fim modal -->
                 <hr>
                 <table class="tabela-processador tabela-geral">
 
@@ -198,6 +113,21 @@
             </span>
             <span class="span-componentes">
                 <h3>Placa mãe</h3>
+                <!-- Button trigger modal  pelo data-bs-toggle e data-bs-target-->
+                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarPlacaMae" onclick="teste()"
+                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256">
+                    <g fill="#dce3ed" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                        style="mix-blend-mode: normal">
+                        <g transform="scale(5.12,5.12)">
+                            <path
+                                d="M25,2c-12.6907,0 -23,10.3093 -23,23c0,12.69071 10.3093,23 23,23c12.69071,0 23,-10.30929 23,-23c0,-12.6907 -10.30929,-23 -23,-23zM25,4c11.60982,0 21,9.39018 21,21c0,11.60982 -9.39018,21 -21,21c-11.60982,0 -21,-9.39018 -21,-21c0,-11.60982 9.39018,-21 21,-21zM24,13v11h-11v2h11v11h2v-11h11v-2h-11v-11z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+
                 <hr>
                 <table class="tabela-placa-mae tabela-geral">
                     <thead id="thead-placa-mae" onclick="mostraTabela('placa-mae')">
@@ -223,6 +153,143 @@
             </tbody>
         </table>
 
+
+
+
+
+
+
+        <!-- ÁREA DE MODAIS -->
+        <!-- Modal processador -->
+        <div class="modal fade" id="modalAdicionarProcessador" tabindex="-1" aria-labelledby="tituloModalProcessador"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="tituloModalProcessador">Adicionar Processador</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-processador" action="./add-proce-db.php" method="post" >
+                            <div class="form-geral">
+                                <label for="nome">Nome
+                                    <input type="text" name="nome">
+                                </label>
+
+                                <label for="precoProcessador">Preço
+                                    <input type="number" name="preco" id="precoProcessador" placeholder="2000.00">
+                                </label>
+
+
+                                <label>Nucleos
+                                    <input type="number" name="nucleos">
+                                </label>
+
+                                <label>Threads
+                                    <input type="number" name="threads">
+                                </label>
+
+                                <label>Clock Máximo
+                                    <input step="0.010" type="number" name="clockMax">
+                                </label>
+
+                                <label>Clock Mínimo
+                                    <input type="number" name="clockMin">
+                                </label>
+
+                                <label>Memória Cache
+                                    <input type="number" name="memCache">
+                                </label>
+
+                                <label>Benchmark
+                                    <input type="number" name="benchmark">
+                                </label>
+
+                                <label>Soquete
+                                    <input type="text" name="soquete">
+                                </label>
+
+                                <label>Memória Ram
+                                    <input type="text" name="memRam">
+                                </label>
+
+                                <label>Velocidade Ram
+                                    <input type="number" name="velocRam">
+                                </label>
+
+                                <label>TDP
+                                    <input type="number" name="tdp">
+                                </label>
+
+                                <label>Data Lançamento
+                                    <input type="date" name="dataLanc">
+                                </label>
+
+                                <div class="container-radio-video">
+                                    <label>Possui video integrado</label>
+                                        <br>
+                                    <label class="clear" for="possuiVideo">Sim
+                                        <input type="radio" id="possuiVideo" name="video" value="1">
+                                    </label>
+
+                                    <label for="naoPossuiVideo">Não
+                                        <input type="radio" id="naoPossuiVideo" name="video" value="0">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" value="Adicionar Processador">
+                            </div>
+                            
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- fim modal -->
+
+        <!-- Modal placa mae -->
+        <div class="modal fade" id="modalAdicionarPlacaMae" tabindex="-1" aria-labelledby="tituloModalPlacaMae"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="tituloModalProcessador">Adicionar Processador</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-processador" action="./add-placa-mae-db.php" method="post">
+                            <div class="form-geral">
+                                <label>Nome
+                                    <input type="text" name="nome">
+                                </label>
+
+                                <label>Preço
+                                    <input type="number" name="preco" placeholder="2000.00">
+                                </label>
+
+
+                                <label>Soquete
+                                    <input type="text" name="soquete">
+                                </label>
+                            </div>
+
+                            <label class="label-text">Info adicional
+                                <textarea class="infoAdicional" name="infoAdicional" maxlength="255"
+                                    rows="5"></textarea>
+                            </label>
+
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" value="Adicionar Placa Mãe">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- fim modal -->
 
     </div>
 </body>

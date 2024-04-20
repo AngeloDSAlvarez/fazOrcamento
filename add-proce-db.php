@@ -26,7 +26,7 @@
 
     $resultado = $connection->query($query);
 
-    echo $resultado ? "Inserido com sucesso" : "Erro ao inserir";
-
+    header("Location: ./index.php");
     mysqli_close($connection);
+    die();
 ?>

@@ -112,6 +112,9 @@ svg {
     justify-content: end;
     width: 48%;
 }
+.label-text {
+    width: 100%;
+}
 
 .form-geral input{
     background-color: #43627f;
@@ -127,8 +130,29 @@ svg {
     
 }
 
-.label-numero {
-    width: min-content;
-    min-width: 80px;
-    
+
+.infoAdicional {
+    width: 100%;
+    background-color: #43627f;
+    outline: none;
+    border-radius: 6px;
+    resize: none;
+    padding: 0 5px;
+}
+
+.infoAdicional:focus, .form-geral input:focus {
+    border: 1px solid #0d2a4a;
+}
+
+.container-radio-video {
+    width: 48%;
+}
+.clear {
+    clear: both;
+}
+.container-radio-video label{
+    float: left;
+    width: max-content;
+
+    margin-right: 15px;
 }

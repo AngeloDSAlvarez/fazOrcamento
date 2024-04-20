@@ -23,12 +23,12 @@ CREATE TABLE processador(
 
 insert into processador VALUES
 (null, "i5 6400", 180, 4, 4, 3.4, 3.1, 6, "2011-01-01", 3869, "1155", "ddr3", "1333", 95, TRUE);
-(null, "i7 2700", 200);
+
 
 
 select * from processador;
 
-DROP TABLE placa_mae;
+
 CREATE TABLE placa_mae(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
@@ -39,8 +39,10 @@ CREATE TABLE placa_mae(
 
 
 INSERT INTO placa_mae VALUES
-(null, "Duex h61", "lga1155", 120, "Com m.2, 2 slot ram, 2 usb 3.0"),
+(null, "Duex h61", "lga11	55", 120, "Com m.2, 2 slot ram, 2 usb 3.0"),
 (null, "Bluecase h110", "lga1151", 220, "Com m.2, 2 slot ram, 2 usb 3.0");
 
 
 select * from placa_mae;
+
+INSERT INTO processador VALUES (NULL,'i7 2600', 1900, 4, 4, 4, 2, 6, 5033, 'lga1155', 'ddr3', 2133, 95, '2011-01-01', 1);
