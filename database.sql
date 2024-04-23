@@ -13,7 +13,7 @@ CREATE TABLE processador(
     mem_cache INT,
     lancamento DATE,
 	benchmark FLOAT,	
-    soquete VARCHAR(30),
+    soquete ENUM('AM3', 'AM4', 'AM5', 'LGA1155', 'LGA1551', 'LGA1150', 'LGA1200', 'LGA1700'),
     memoria_ram ENUM("ddr2", "ddr3", "ddr4", "ddr5"),
     veloc_ram INT,
     tdp INT,

@@ -1,3 +1,0 @@
-Utilizar tabelas e nas tabelas onclick="", enviando id do processador e algo para identificar que é um processador, para depois ser imprimido para a tabela
-
-Fazer verificação caso já tenha um processador na tabela e alterar o processador para o novo que clickar, não concatenando

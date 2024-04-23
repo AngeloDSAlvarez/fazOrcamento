@@ -194,7 +194,7 @@
                                 </label>
 
                                 <label>Clock Mínimo
-                                    <input type="number" name="clockMin">
+                                    <input step="0.010" type="number" name="clockMin">
                                 </label>
 
                                 <label>Memória Cache

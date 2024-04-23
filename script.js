@@ -73,11 +73,15 @@ function alteraComponente(id_item, componente) {
                 if (id_item == item.id) {
                     //pega o elemento <tr> pelo id, id que é o nome do componente, ex: processador, placa-mae
                     let trComponente = document.getElementById(componente);
+                    
                     //verifica se o <tr> do componente está nulo, para apagar o elemento e não ficar duplicado
                     if (trComponente != null) {
+                        //recebe o valor atual do componente e faz um parseFloat
+                        let valorAntigoComponente = parseFloat(trComponente.lastElementChild.textContent);
                         //remove o <tr> caso não esteja nula
                         trComponente.remove();
-                        atualizaTotalTabela(tbodyComponentes, item.preco, false);
+                        //chama a função para atualizar o total, enviando o tbody dos componentes, o valor e a opção false para subtrair
+                        atualizaTotalTabela(tbodyComponentes, valorAntigoComponente, false);
                     }
 
                     //innerHTML na "tbodyComponentes" colocando id o nome do componente e outros dados.
@@ -85,7 +89,7 @@ function alteraComponente(id_item, componente) {
                     <tr id="${componente}">
                         <td > ${componente} </td>
                         <td > ${item.nome} </td>
-                        <td > R$ ${item.preco} </td>
+                        <td > ${item.preco} </td>
                     </tr>
                     `;
                     atualizaTotalTabela(tbodyComponentes, item.preco, true);
