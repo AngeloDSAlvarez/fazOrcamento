@@ -1,53 +1,8 @@
 <?php
  
-    //conexão com o BD
-    $connection = mysqli_connect("localhost:3306", "root", "root", "fazorcamento") or die ("Error: " . mysqli_error($connection));
-
-    //query para pegar os processadores do bd
-    $queryProcessador = "  SELECT * FROM processador
-                ORDER BY nome; ";
-
-    //executa a query
-    $resultado = mysqli_query($connection, $queryProcessador) or die ("Erro ao selecionar " . mysqli_error($connection));
-
-    //array para armazenar o resultado
-    $arrayProcessador = array();
     
-    //passa o resultado para o array
-    while($row = mysqli_fetch_assoc($resultado)){
-        $arrayProcessador[] = $row;
-    }
-
-    //caminho do JSON
-    $jsonProcessador = fopen('./json/processador.json', 'w');
-
-    //escreve no JSON e utiliza a função JSON_encode
-    fwrite($jsonProcessador, json_encode($arrayProcessador));
-    fclose($jsonProcessador);
-
-
-
-    //query para pegar a placa mãe do bd
-    $queryPlacaMae = "  SELECT * FROM placa_mae
-                ORDER BY soquete; ";
-
-    //executa a query
-    $resultado = mysqli_query($connection, $queryPlacaMae) or die ("Erro ao selecionar " . mysqli_error($connection));
-
-    //array para armazenar o resultado
-    $arrayPlacaMae = array();
-    
-    //passa o resultado para o array
-    while($row = mysqli_fetch_assoc($resultado)){
-        $arrayPlacaMae[] = $row;
-    }
-
-    //caminho do JSON
-    $jsonPlacaMae = fopen('./json/placa-mae.json', 'w');
-
-    //escreve no JSON e utiliza a função JSON_encode
-    fwrite($jsonPlacaMae, json_encode($arrayPlacaMae));
-    fclose($jsonPlacaMae);
+    //insere conexão com o banco
+    include './info-db.php';
 
 ?>
 
@@ -73,6 +28,7 @@
         <h1>Orçamento!</h1>
         <hr>
         <div class="tabelas-componentes">
+            <!-- PROCESSADOR -->
             <span class="span-componentes">
                 <h3>
                     Processador
@@ -111,6 +67,7 @@
                     </tbody>
                 </table>
             </span>
+            <!-- PLACA MÃE -->
             <span class="span-componentes">
                 <h3>Placa mãe</h3>
                 <!-- Button trigger modal  pelo data-bs-toggle e data-bs-target-->
@@ -135,6 +92,35 @@
 
                     <tbody class="placa-mae" id="tbody-placa-mae">
                         <script>atualizaTabela("placa-mae")</script>
+                    </tbody>
+                </table>
+            </span>
+<br>
+            <!-- MEMÓRIA RAM -->
+            <span class="span-componentes">
+                <h3>Memória Ram</h3>
+                <!-- Button trigger modal  pelo data-bs-toggle e data-bs-target-->
+                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarPlacaMae" onclick="teste()"
+                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256">
+                    <g fill="#dce3ed" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                        font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                        style="mix-blend-mode: normal">
+                        <g transform="scale(5.12,5.12)">
+                            <path
+                                d="M25,2c-12.6907,0 -23,10.3093 -23,23c0,12.69071 10.3093,23 23,23c12.69071,0 23,-10.30929 23,-23c0,-12.6907 -10.30929,-23 -23,-23zM25,4c11.60982,0 21,9.39018 21,21c0,11.60982 -9.39018,21 -21,21c-11.60982,0 -21,-9.39018 -21,-21c0,-11.60982 9.39018,-21 21,-21zM24,13v11h-11v2h11v11h2v-11h11v-2h-11v-11z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+
+                <hr>
+                <table class="tabela-memoria-ram tabela-geral">
+                    <thead id="thead-memoria-ram" onclick="mostraTabela('memoria-ram')">
+                    </thead>
+
+                    <tbody class="memoria-ram" id="tbody-memoria-ram">
+                        <script>atualizaTabela("memoria-ram")</script>
                     </tbody>
                 </table>
             </span>

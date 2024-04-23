@@ -28,8 +28,17 @@ hr {
     border-color: #a4bad2;
 }
 
+.container-pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .tabelas-componentes {
     display: flex;
+    width: 95%;
+    border: 1px solid red;
+    flex-wrap: wrap;
 }
 h3 {
     display: flex;

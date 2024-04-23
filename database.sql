@@ -29,11 +29,11 @@ insert into processador VALUES
 
 select * from processador;
 
-
+DROP TABLE placa_mae;
 CREATE TABLE placa_mae(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
-    soquete ENUM('AM3', 'AM4', 'AM5', 'LGA1155', 'LGA1551', 'LGA1150', 'LGA1200', 'LGA1700'),
+    soquete ENUM('AM3', 'AM4', 'AM5', 'LGA1155', 'LGA1151', 'LGA1150', 'LGA1200', 'LGA1700'),
     preco FLOAT,
     info_adicional VARCHAR(255)
 );
@@ -52,3 +52,14 @@ select * from placa_mae;
 
 
 INSERT INTO processador VALUES (NULL,'i7 2600', 1900, 4, 4, 4, 2, 6, 5033, 'lga1155', 'ddr3', 2133, 95, '2011-01-01', 1);
+
+CREATE TABLE memoria_ram(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(200),
+    preco FLOAT,
+    versao ENUM("ddr2", "ddr3", "ddr4", "ddr5"),
+    clock FLOAT
+);
+
+INSERT INTO memoria_ram VALUE
+(null, "duex 8gb", 80, "ddr4", 2666);
