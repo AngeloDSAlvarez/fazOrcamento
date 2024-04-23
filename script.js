@@ -13,6 +13,7 @@ function atualizaTabela(componente) {
         //converte a resposta em JSON e após for convertido (.then) possuo os componentes, que fica em items
         resposta.json().then((items) => {
             //cria vetor com o nomes para serem inseridos no cabeçalho, através das keys do objeto recebido do json
+            //caso não tenha itens inseridos na tabela no DB dara erro de conversão de null para object
             let vetorCabecalho = Object.keys(items[0]);
             //inicializa a linha do th
             var textoTHead = `<tr id=""> `;
@@ -56,8 +57,8 @@ function teste(){
     
 }
 function alteraComponente(id_item, componente) {
-    //usa o querySelector parra pegar a tabela-componentes
-    let tabelaComponentes = document.querySelector("#tbody-componentes");
+    //usa o querySelector parra pegar a tbody-componentes
+    let tbodyComponentes = document.querySelector("#tbody-componentes");
     //'pega' o json do componente, recebido atravez do parametro
     fetch("./json/" + componente + ".json").then((response) => {
         //converte a resposta em JSON e após for convertido (.then) possuo os componentes, que fica em items
@@ -76,16 +77,18 @@ function alteraComponente(id_item, componente) {
                     if (trComponente != null) {
                         //remove o <tr> caso não esteja nula
                         trComponente.remove();
+                        atualizaTotalTabela(tbodyComponentes, item.preco, false);
                     }
 
-                    //innerHTML na "tabelaComponentes" colocando id o nome do componente e outros dados.
-                    tabelaComponentes.innerHTML += `
+                    //innerHTML na "tbodyComponentes" colocando id o nome do componente e outros dados.
+                    tbodyComponentes.innerHTML += `
                     <tr id="${componente}">
                         <td > ${componente} </td>
                         <td > ${item.nome} </td>
                         <td > R$ ${item.preco} </td>
                     </tr>
                     `;
+                    atualizaTotalTabela(tbodyComponentes, item.preco, true);
                     componenteAtivo(id_item, componente);
                 }
             })
@@ -93,6 +96,58 @@ function alteraComponente(id_item, componente) {
     })
 }
 
+/*  função para atualizar o valor total da tabela de componentes, recebe como parametro o tbody da tabela, valor e a opção
+    tbody da tabela para fazer o innerHtml com a atualização
+    recebe diretamente o valor do item para ser somado ou subtraído do total
+    opção para saber se é para somar ou subtrair o valor: false = subtrair | true = somar
+    ex. de uso: (elemento recebido pelo Document.GetElementBy, 200, True)
+    irá somar no elemento recebido o valor de 200
+*/
+function atualizaTotalTabela (tabela, valor, opcao) {
+    var trValorTotal = document.getElementById("valorTotalComponentes");
+    valor = parseFloat(valor);
+
+    //verifica se existe já a linha com o valor total
+    if (trValorTotal != null) {
+        //recebe o valor atual de valor total e faz um parseFloat
+        var valorAtual = parseFloat(trValorTotal.lastElementChild.textContent);
+        //remove a linha atual
+        trValorTotal.remove();
+        //verifica se quer somar um subtrair
+        if (opcao){
+            //adiciona novamente a linha com o valor total com o valor antigo + o recebido no parametro
+            tabela.innerHTML += `
+                <tr id="valorTotalComponentes">
+                    <td>Valor Total</td>
+                    <td></td>
+                    <td >${valorAtual += valor}</td>
+                </tr>
+            `;
+        } else {
+            //adiciona novamente a linha com o valor total com o valor antigo - o recebido no parametro
+            tabela.innerHTML += `
+                <tr id="valorTotalComponentes">
+                    <td>Valor Total</td>
+                    <td></td>
+                    <td >${valorAtual -= valor}</td>
+                </tr>
+            `;
+        }
+    //opção para subtração
+    } else {
+        if (opcao){
+            //insere a linha do valor total pela primeira vez
+            tabela.innerHTML += `
+                <tr id="valorTotalComponentes">
+                    <td>Valor Total</td>
+                    <td></td>
+                    <td >${valor}</td>
+                </tr>
+            `;
+        }
+    }
+    
+}
 //array dos componentes ativos nas tabelas
 var componentesAtivos = [0];
 
