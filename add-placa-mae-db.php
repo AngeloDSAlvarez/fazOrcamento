@@ -12,8 +12,6 @@
     (NULL,'$nome', '$soquete', $preco, '$infoAdicional');
     ";
 
-    echo $query;
-
     $connection->query($query);
 
     header("Location: ./index.php");

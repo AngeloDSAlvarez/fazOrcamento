@@ -50,7 +50,7 @@
 
     //query para pegar as memorias ram do bd
     $queryPlacaMae = "  SELECT * FROM memoria_ram
-                ORDER BY versao; ";
+                ORDER BY geracao; ";
 
     //executa a query
     $resultado = mysqli_query($connection, $queryPlacaMae) or die ("Erro ao selecionar " . mysqli_error($connection));

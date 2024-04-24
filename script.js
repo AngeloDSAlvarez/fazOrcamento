@@ -53,9 +53,6 @@ function atualizaTabela(componente) {
 }
 
 
-function teste(){
-    
-}
 function alteraComponente(id_item, componente) {
     //usa o querySelector parra pegar a tbody-componentes
     let tbodyComponentes = document.querySelector("#tbody-componentes");

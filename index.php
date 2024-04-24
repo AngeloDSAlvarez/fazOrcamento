@@ -34,7 +34,7 @@
                     Processador
                 </h3>
                 <!-- Button trigger modal  pelo data-bs-toggle e data-bs-target-->
-                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarProcessador" onclick="teste()"
+                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarProcessador" 
                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256">
                     <g fill="#dce3ed" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                         stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -71,7 +71,7 @@
             <span class="span-componentes">
                 <h3>Placa mãe</h3>
                 <!-- Button trigger modal  pelo data-bs-toggle e data-bs-target-->
-                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarPlacaMae" onclick="teste()"
+                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarPlacaMae" 
                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256">
                     <g fill="#dce3ed" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                         stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -100,7 +100,7 @@
             <span class="span-componentes">
                 <h3>Memória Ram</h3>
                 <!-- Button trigger modal  pelo data-bs-toggle e data-bs-target-->
-                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarPlacaMae" onclick="teste()"
+                <svg data-bs-toggle="modal" data-bs-target="#modalAdicionarMemoriaRam"
                     xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0,0,256,256">
                     <g fill="#dce3ed" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                         stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -188,7 +188,7 @@
                                 </label>
 
                                 <label>Benchmark
-                                    <input type="number" name="benchmark">
+                                    <input step="0.010" type="number" name="benchmark">
                                 </label>
 
                                 <label>Soquete
@@ -213,11 +213,11 @@
                                 </label>
 
                                 <label>Velocidade Ram
-                                    <input type="number" name="velocRam">
+                                    <input step="0.010" type="number" name="velocRam">
                                 </label>
 
                                 <label>TDP
-                                    <input type="number" name="tdp">
+                                    <input step="0.010" type="number" name="tdp">
                                 </label>
 
                                 <label>Data Lançamento
@@ -265,7 +265,7 @@
                                 </label>
 
                                 <label>Preço
-                                    <input type="number" name="preco" placeholder="2000.00">
+                                    <input step="0.010" type="number" name="preco" placeholder="2000.00">
                                 </label>
 
 
@@ -289,6 +289,53 @@
 
                             <div class="modal-footer">
                                 <input type="submit" class="btn btn-primary" value="Adicionar Placa Mãe">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal memoria ram -->
+        <div class="modal fade" id="modalAdicionarMemoriaRam" tabindex="-1" aria-labelledby="tituloModalMemoriaRam"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="tituloModalProcessador">Adicionar Memória Ram  </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body"><!-- corpo e fomulário -->
+                        <form id="form-memoria-ram" action="./add-memoria-ram-db.php" method="post">
+                            <div class="form-geral">
+                                <label>Nome
+                                    <input type="text" name="nome">
+                                </label>
+
+                                <label>Preço
+                                    <input step="0.010" type="number" name="preco" placeholder="80.00">
+                                </label>
+
+
+                                <label>Geração
+                                    <select name="geracao">
+                                        <option value="ddr2">DDR2</option>
+                                        <option value="ddr3">DDR3</option>
+                                        <option value="ddr4">DDR4</option>
+                                        <option value="ddr5">DDR5</option>
+                                    </select>
+                                </label>
+
+                                <label>Clock
+                                    <input step="0.010" type="numer" name="clock" placeholder="2666">
+                                </label>
+                            </div>
+
+                            
+
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" value="Adicionar Memoria Ram">
                             </div>
                         </form>
                     </div>

@@ -13,12 +13,13 @@ CREATE TABLE processador(
     mem_cache INT,
     lancamento DATE,
 	benchmark FLOAT,	
-    soquete ENUM('AM3', 'AM4', 'AM5', 'LGA1155', 'LGA1551', 'LGA1150', 'LGA1200', 'LGA1700'),
+    soquete ENUM('AM3', 'AM4', 'AM5', 'LGA1155', 'LGA1151', 'LGA1150', 'LGA1200', 'LGA1700'),
     memoria_ram ENUM("ddr2", "ddr3", "ddr4", "ddr5"),
     veloc_ram INT,
     tdp INT,
 	grafico BOOLEAN
 );
+INSERT INTO processador VALUES (NULL,'i7 2600', 2, 2, 2, 3, 4, 6, '2011-04-01', 4, 'LGA1151', 'ddr3', 2133, 95, 1);
 
 INSERT INTO processador VALUES (NULL,'a', 0, 0, 0, 0, 0, 00, '2000-01-01', 0, '00', 'ddr3', 0, 0, 0);
 
@@ -52,12 +53,12 @@ select * from placa_mae;
 
 
 INSERT INTO processador VALUES (NULL,'i7 2600', 1900, 4, 4, 4, 2, 6, 5033, 'lga1155', 'ddr3', 2133, 95, '2011-01-01', 1);
-
+DROP TABLE memoria_ram;
 CREATE TABLE memoria_ram(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(200),
     preco FLOAT,
-    versao ENUM("ddr2", "ddr3", "ddr4", "ddr5"),
+    geracao ENUM("ddr2", "ddr3", "ddr4", "ddr5"),
     clock FLOAT
 );
 
